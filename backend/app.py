@@ -35,16 +35,33 @@ def get_catalogo():
         return jsonify({"error": str(e)}), 500
 
 def seed_data():
-    # Solo insertamos si no hay categorías
     if CategoriaPadre.query.first() is None:
-        print("Poblando base de datos inicial...")
-        h = CategoriaPadre(nombre='HOMBRE')
-        m = CategoriaPadre(nombre='MUJER')
-        b = CategoriaPadre(nombre='BOLSAS')
-        j = CategoriaPadre(nombre='JOYERIA')
-        db.session.add_all([h, m, b, j])
+        print("Iniciando carga de datos maestros...")
+        
+        # 1. Definimos la estructura en un diccionario (Llave: Padre, Valor: Lista de Hijos)
+        menu_raiport = {
+            "HOMBRE": ["Camisetas", "Camisas", "Sacos", "Chalecos", "Chamarras Zip", 
+                       "Hoodies", "Suéteres", "Pantalones", "Jeans", "Shorts", "Sombreros", "Accesorios"],
+            "MUJER": ["Camisetas", "Camisas", "Sacos", "Chalecos", "Chamarras Zip", 
+                      "Hoodies", "Suéteres", "Pantalones", "Jeans", "Shorts", "Sombreros", "Accesorios"],
+            "BOLSAS": ["Gym", "Totes", "Cangureras", "Mochilas"],
+            "JOYERIA": ["Anillos", "Cadenas", "Brazaletes", "Relojes", "Aretes"]
+        }
+
+        # 2. Iteramos sobre el diccionario
+        for nombre_padre, hijos in menu_raiport.items():
+            # Creamos el Padre
+            padre = CategoriaPadre(nombre=nombre_padre)
+            db.session.add(padre)
+            db.session.flush() # Esto genera el ID del padre sin cerrar la transacción
+
+            # Creamos los Hijos asociados a ese ID
+            for nombre_hijo in hijos:
+                hijo = Subcategoria(nombre=nombre_hijo, categoria_padre_id=padre.id)
+                db.session.add(hijo)
+        
         db.session.commit()
-        print("¡Datos insertados!")
+        print("¡Estructura de RAIPORT CLUB cargada exitosamente!")
 
 def setup_database():
     with app.app_context():
