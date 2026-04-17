@@ -1,0 +1,47 @@
+.carousel {
+    width: 100%;
+    background-color: #000000;
+    color: #fff;
+    overflow: hidden;
+    padding: 12px 0;
+    display: flex;
+    position: relative;
+}
+
+.carousel-track {
+    display: flex;
+    width: max-content; /* Importante para que no se amontone */
+    animation: scroll-right 90s linear infinite; /* Movimiento del track a la derecha */
+}
+
+.carousel-content {
+    display: flex;
+    flex-shrink: 0;
+}
+
+.carousel-content span {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: 900;
+    font-size: 14px;
+    padding-right: 150px; /* Espaciado constante */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Animación fluida de Izquierda a Derecha */
+@keyframes scroll-right {
+    0% {
+        /* Empieza desplazado a la izquierda el equivalente a una mitad */
+        transform: translateX(-50%);
+    }
+    100% {
+        /* Termina en su posición original */
+        transform: translateX(1%);
+    }
+}
+
+/* Pausar al pasar el mouse 
+.carousel:hover .carousel-track {
+    animation-play-state: paused;
+}
+    */

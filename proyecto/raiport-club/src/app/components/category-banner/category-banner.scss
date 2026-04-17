@@ -1,0 +1,101 @@
+/* --- Contenedor de Banners Grandes --- */
+.bloqueImgFondo {
+    padding-top: 100px; /* Ajustado para que no haya tanto hueco arriba */
+    position: relative;
+}
+
+.bloqueImgFondo img {
+    width: 100%;
+    display: block;
+}
+
+/* --- Botón sobre la imagen --- */
+.botonImg {
+    position: absolute; /* Cambiado a absolute para mejor control sobre la imagen */
+    bottom: 50px;       /* Distancia desde el borde inferior de la imagen */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 162px;
+    height: 73px;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+    color: black;
+    border: 2px solid black;
+    background-color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.botonImg:hover {
+    background-color: black;
+    color: white;
+}
+
+/* --- Títulos de Sección --- */
+.titulo {
+    text-align: center;
+    padding: 60px 0 20px 0;
+}
+
+.titulo h2 {
+    font-family: dela gothic one, sans-serif;
+    font-size: 24px;
+    letter-spacing: 2px;
+}
+
+/* --- GRID DE PRODUCTOS (BOLSAS) --- */
+.bloqueBolsas {
+    display: flex;
+    justify-content: center;
+    gap: 60px; /* Espacio entre los dos productos */
+    padding: 40px 20px;
+    flex-wrap: wrap; /* Por si la pantalla es pequeña, se acomodan solos */
+}
+
+/* Contenedor individual de cada producto */
+.producto-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 450px;
+}
+
+.producto-item img {
+    width: 100%;
+    height: 310px;
+    object-fit: cover;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.producto-item img:hover {
+    transform: scale(1.1); 
+    cursor: pointer;
+}
+
+.info-producto {
+    margin-top: 20px;
+    font-family: sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.info-producto .nombre {
+    display: block;
+    font-weight: bold;
+    font-size: 14px;
+    color: #000;
+    margin-bottom: 8px;  /* Espacio controlado entre nombre y precio */
+}
+
+.info-producto .precio {
+    display: block;
+    font-size: 13px;
+    color: #000000;         
+    font-weight: 500;
+}

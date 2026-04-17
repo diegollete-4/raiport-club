@@ -1,0 +1,28 @@
+.tituloBestseller{
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
+}
+
+.tituloBestseller h2{
+    font-size: 40px;
+    text-shadow: 1px 1px 5px black;
+}
+
+.imgBestseller{
+    display: flex;
+    justify-content: center;
+    gap: 110px;
+    padding-top: 150px;
+}
+
+.imgBestseller img{
+    box-shadow: 1px 1px 5px rgba($color: #000000, $alpha: 0.5);
+    width: 400px;
+    height: 400px;
+    transition: transform 0.3s ease;
+}
+.imgBestseller img:hover{
+    transform: scale(1.1); 
+    cursor: pointer;
+}

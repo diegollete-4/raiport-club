@@ -1,0 +1,94 @@
+/* --- Contenedor Principal --- */
+.nav-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0 40px;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: 0 3px 3px rgba(0,0,0,0.2);
+}
+
+/* --- Grupos de links (Izquierda y Derecha) --- */
+.links-izq, .links-der {
+    display: flex;
+    gap: 80px; /* Espacio entre Hombre/Mujer y Bolsas/Joyería */
+    flex: 1;
+}
+
+.links-izq { 
+    justify-content: flex-start; 
+}
+
+.links-der {
+    justify-content: flex-end; 
+}
+
+/* --- Estilo de los LI (Items principales) --- */
+.nav-links li {
+    position: relative; /* Clave para el submenú */
+    list-style: none;
+}
+
+/* El link principal */
+.nav-links li > a {
+    display: block;
+    padding: 15px 20px;
+    color: #000;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-size: 15px;
+    transition: all 300ms;
+}
+
+/* Hover: Fondo negro y letra blanca */
+.nav-links li:hover > a {
+    background-color: #000;
+    color: #fff;
+}
+
+/* --- SUBMENÚ --- */
+.nav-links li ul {
+    display: none;
+    position: absolute;
+    top: 100%; /* Justo debajo del padre */
+    left: 0;
+    width: 200px;
+    background-color: white;
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+    z-index: 100;
+    padding: 0;
+    margin: 0;
+}
+
+/* Mostrar al hacer hover */
+.nav-links li:hover > ul {
+    display: block;
+}
+
+/* Items dentro del submenú */
+.nav-links li ul li {
+    border-bottom: 1px solid #303030;
+}
+
+.nav-links li ul li a {
+    padding: 10px 15px;
+    font-size: 14px;
+    color: #000000;
+    display: block;
+    background-color: #f9f9f9;
+}
+
+/* Hover en el item del submenú */
+.nav-links li ul li:hover a {
+    background-color: #000 !important;
+    color: #fff !important;
+}
+
+.links-centro li a{
+    font-size: 20px;
+    font-weight: bold;
+    font-family: dela gothic one;
+}

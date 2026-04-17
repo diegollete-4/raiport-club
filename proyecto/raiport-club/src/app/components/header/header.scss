@@ -1,0 +1,49 @@
+.header {
+    display: flex;
+    align-items: center; /* Centra verticalmente */
+    justify-content: space-between; /* Distribuye los 3 bloques */
+    width: 100%;
+    height: 60px;
+    background-color: black;
+    padding: 0 20px; /* Espacio a los bordes para que el carro no pegue al final */
+    box-sizing: border-box;
+}
+
+/* Los dos lados ocupan el mismo espacio para forzar el centro */
+.header-spacer, .header-cart {
+    flex: 1;
+    display: flex;
+}
+
+.header-cart {
+    justify-content: flex-end; /* Mueve el carrito al final de su bloque (derecha) */
+}
+
+.header-title {
+    flex: 2; /* Le damos más espacio al título */
+    text-align: center;
+    font-family: sans-serif;
+}
+
+.header-title a {
+    text-decoration: none;
+    color: white;
+}
+
+.header h1 {
+    font-size: 30px;
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+/* Estilo para el icono del carrito */
+.header-cart img {
+    width: 30px; /* Tamaño un poco más visible para un icono */
+    height: auto;
+    filter: invert(1); /* Si tu icono es negro, esto lo vuelve blanco para el fondo negro */
+    transition: transform 0.2s;
+}
+
+.header-cart img:hover {
+    transform: scale(1.1); /* Efecto sutil al pasar el mouse */
+}

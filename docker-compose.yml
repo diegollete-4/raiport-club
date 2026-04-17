@@ -1,0 +1,29 @@
+services:
+  db:
+    image: postgres:15
+    container_name: raiport_db
+    restart: always
+    environment:
+      POSTGRES_USER: raiport_user
+      POSTGRES_PASSWORD: raiport_password
+      POSTGRES_DB: raiport_club_db
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  backend:
+    build: ./backend
+    container_name: raiport_backend
+    ports:
+      - "5001:5000"
+    environment:
+      DATABASE_URL: postgresql://raiport_user:raiport_password@db:5432/raiport_club_db
+    depends_on:
+      - db
+    volumes:
+      - ./backend:/app
+
+# AQUÍ ES DONDE DECLARAMOS EL VOLUMEN (Esto faltaba)
+volumes:
+  postgres_data:
