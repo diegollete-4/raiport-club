@@ -1,6 +1,6 @@
 .bloqueSticky {
     position: sticky;
     top: 0;           /* Se pega al borde superior de la pantalla */
-    z-index: 1000;    /* Un número alto para que pase por encima de las imágenes de productos */
+    z-index: 1;    /* Un número alto para que pase por encima de las imágenes de productos */
     background-color: white; /* Asegura que no sea transparente al bajar */
 }

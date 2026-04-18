@@ -1,0 +1,17 @@
+<div class="container-productos">
+  <h2>Productos de esta sección</h2>
+
+  <div class="grid-productos">
+    <p *ngIf="productos.length === 0">No hay productos en esta sección por ahora, patrón.</p>
+
+    <div class="producto-card" *ngFor="let prod of productos">
+      <img [src]="prod.imagen" alt="{{ prod.nombre }}">
+      <div class="info">
+        <h3>{{ prod.nombre }}</h3>
+        <p class="condicion">{{ prod.condicion }}</p>
+        <p class="precio">${{ prod.precio }}</p>
+        <a [routerLink]="['/producto', prod.id]" class="btn-ver">Ver más</a>
+      </div>
+    </div>
+  </div>
+</div>

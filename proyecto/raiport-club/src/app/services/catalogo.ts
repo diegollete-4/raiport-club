@@ -7,12 +7,22 @@ import { Catalogo } from '../models/catalogo.model';
   providedIn: 'root'
 })
 export class CatalogoService {
-  // La URL de API en Docker
-  private apiUrl = 'http://localhost:5001/api/catalogo';
+  private apiUrl = 'http://localhost:5001/api';
 
   constructor(private http: HttpClient) { }
 
+  // Obtiene el menú completo con categorías y subcategorías
   getCatalogo(): Observable<Catalogo[]> {
-    return this.http.get<Catalogo[]>(this.apiUrl);
+    return this.http.get<Catalogo[]>(`${this.apiUrl}/catalogo`);
+  }
+
+  // Nuevo método para traer productos de una sección
+  getProductosBySub(id: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/subcategoria/${id}/productos`);
+  }
+
+  // Nuevo método para traer el detalle de un solo producto
+  getProductoDetalle(id: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/producto/${id}`);
   }
 }

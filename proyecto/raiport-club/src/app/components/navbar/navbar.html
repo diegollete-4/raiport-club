@@ -1,14 +1,15 @@
 <div class="barraNav">
   <nav>
     <ul class="nav-links">
-      
+
       <div class="links-izq">
         <ng-container *ngFor="let cat of categorias">
           <li *ngIf="cat.nombre === 'HOMBRE' || cat.nombre === 'MUJER'">
-            <a href="#">{{ cat.nombre }}</a>
-            <ul *ngIf="cat.subcategorias.length > 0">
+            <a href="javascript:void(0)">{{ cat.nombre }}</a>
+            
+            <ul *ngIf="cat.subcategorias && cat.subcategorias.length > 0">
               <li *ngFor="let sub of cat.subcategorias">
-                <a href="#">{{ sub }}</a>
+                <a [routerLink]="['/subcategoria', sub.id]">{{ sub.nombre }}</a>
               </li>
             </ul>
           </li>
@@ -16,22 +17,22 @@
       </div>
       
       <div class="links-centro">
-        <li><a href="#">CATÁLOGO*</a></li>
+        <li><a routerLink="/">CATÁLOGO*</a></li>
       </div>
 
       <div class="links-der">
         <ng-container *ngFor="let cat of categorias">
-          <li *ngIf="cat.nombre === 'BOLSAS' || cat.nombre === 'JOYERIA'">
-            <a href="#">{{ cat.nombre }}</a>
-            <ul *ngIf="cat.subcategorias.length > 0">
+          <li *ngIf="cat.nombre === 'BOLSAS' || cat.nombre === 'JOYERIA' || cat.nombre === 'JOYERÍA'">
+            <a href="javascript:void(0)">{{ cat.nombre }}</a>
+            <ul *ngIf="cat.subcategorias && cat.subcategorias.length > 0">
               <li *ngFor="let sub of cat.subcategorias">
-                <a href="#">{{ sub }}</a>
+                <a [routerLink]="['/subcategoria', sub.id]">{{ sub.nombre }}</a>
               </li>
             </ul>
           </li>
         </ng-container>
       </div>
-
     </ul>
+    
   </nav>
 </div>

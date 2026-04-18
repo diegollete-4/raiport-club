@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common'; // Para usar *ngFor en el HTML
 import { CatalogoService } from '../../services/catalogo'; 
 import { Catalogo } from '../../models/catalogo.model';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule], // Importante para que funcione el bucle en el HTML
+  imports: [CommonModule, RouterModule], // Importante para que funcione el bucle en el HTML
   templateUrl: './navbar.html',
   styleUrl: './navbar.scss',
 })

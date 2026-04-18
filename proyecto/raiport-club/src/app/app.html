@@ -1,20 +1,11 @@
 <div class="bloqueSticky">
-    <!--HEADER-->
-    <app-header ></app-header>
-
-    <!--CARRUSEL-->
+    <app-header></app-header>
     <app-carousel></app-carousel>
-
-    <!--BARRA NAVEGACIÓN-->
     <app-navbar></app-navbar>
 </div>
 
-<!--BEST SELLERS-->
-<app-best-sellers></app-best-sellers>
-
-<!--BOLSAS y JOYERÍA-->
-<app-category-banner></app-category-banner>
+<main>
+    <router-outlet></router-outlet>
+</main>
 
 <app-footer></app-footer>
-
-<router-outlet />
